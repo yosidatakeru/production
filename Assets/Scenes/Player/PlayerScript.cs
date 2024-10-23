@@ -10,7 +10,7 @@ public  class PlayerScript : MonoBehaviour
 
     //プレイヤーの移動スピード
     public float playerSpeed;
-    
+    Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,25 +24,26 @@ public  class PlayerScript : MonoBehaviour
     {
         //プレイヤーの移動処理
         // Wキー（前方移動）
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && transform.position.y <=15.0f  )
         {
+
             transform.position += playerSpeed * transform.up * Time.deltaTime;
         }
 
         // Sキー（後方移動）
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && transform.position.y >= -5.0)
         {
             transform.position -= playerSpeed * transform.up * Time.deltaTime;
         }
 
         // Dキー（右移動）
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && transform.position.x <= 10.0f)
         {
             transform.position += playerSpeed * transform.right * Time.deltaTime;
         }
 
         // Aキー（左移動）
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && transform.position.x >= -20.0f)
         {
             transform.position -= playerSpeed * transform.right * Time.deltaTime;
         }
