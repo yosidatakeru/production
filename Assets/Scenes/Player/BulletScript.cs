@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    float bulletSpeed = 20;
 
-  
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +20,8 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-      
-        
+        transform.position += bulletSpeed * transform.forward * Time.deltaTime;
+        Destroy(gameObject,3);
     }
 
     

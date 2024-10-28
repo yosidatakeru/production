@@ -9,8 +9,8 @@ public class EnemyScript : MonoBehaviour
 {
     EnemySpawnScript enemySpawn;
 
-    //int enespon = 0;
-   
+    float enemySpeed = 4; 
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +23,10 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
 
-         //enespon = enemySpawn.GetebenySpawns();
-         //enespon ++;
-         //enemySpawn.SetenemySpawns(enespon);
+        transform.position += enemySpeed * transform.forward * Time.deltaTime;
 
 
-       
+
 
     }
 

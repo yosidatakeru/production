@@ -9,8 +9,8 @@ public  class PlayerScript : MonoBehaviour
 {
 
     //プレイヤーの移動スピード
-    public float playerSpeed;
-    Vector3 pos;
+    public float playerSpeed = 4;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +48,7 @@ public  class PlayerScript : MonoBehaviour
             transform.position -= playerSpeed * transform.right * Time.deltaTime;
         }
 
+        transform.position += playerSpeed * transform.forward * Time.deltaTime;
 
     }
 
