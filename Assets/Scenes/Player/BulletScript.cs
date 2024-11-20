@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    float bulletSpeed = 20;
+    float bulletSpeed = 200;
 
 
     // Start is called before the first frame update
@@ -21,13 +21,15 @@ public class BulletScript : MonoBehaviour
     void Update()
     {
         transform.position += bulletSpeed * transform.forward * Time.deltaTime;
-        Destroy(gameObject,3);
+        Destroy(gameObject,5);
+
     }
 
-    
+
     void OnCollisionEnter(Collision Bullet)
     {
-        if(Bullet.gameObject.tag == "Enemy")
+      
+        if (Bullet.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
         }

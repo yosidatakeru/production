@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 9190599340217376606}
   - component: {fileID: 3358360437717288445}
   - component: {fileID: 341579498}
-  - component: {fileID: 341579499}
-  - component: {fileID: 341579500}
   - component: {fileID: 3128910146694349139}
   m_Layer: 0
   m_Name: Enemy
@@ -66,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c398776f3b33e3844b255b7d68824ab8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +97,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.4, y: 1.4, z: 1.4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &341579498
 Rigidbody:
@@ -117,33 +115,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!135 &341579499
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7016990535425608541}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &341579500
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7016990535425608541}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3128910146694349139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4c0a4c3cbce7a4cad7471516f75631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyBullet: {fileID: 599098366658475669, guid: c7cf2d5b90cc44744b03406503a9e5aa, type: 3}
+  particle: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
