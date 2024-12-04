@@ -13,13 +13,17 @@ public class EnemySpawnScript : MonoBehaviour
     //敵のスポンジ時間の制御
     int enemeSoawn = 10;
     //スポーン数
-    public int enemySpawns = 10;
+    public int enemySpawns = 20;
     Vector3 EnemePos = Vector3.zero;
     float spawnSpeed = 100;
-   
 
-   public int GetebenySpawns() { return enemySpawns; }
-   public void  SetenemySpawns(int enemeSpawns_) { enemySpawns = enemeSpawns_; }
+   public int GetSetProperty
+    {
+        get { return enemySpawns; }
+        set { enemySpawns = value;}
+    }
+
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -34,14 +38,16 @@ public class EnemySpawnScript : MonoBehaviour
     void Update()
     {
 
-        
-        
-        enemeSoawn--;
+
+      
+       enemeSoawn--;
 
         transform.position += spawnSpeed * transform.forward * Time.deltaTime;
 
 
 
+
+        GetSetProperty = enemySpawns;
 
         if (enemeSoawn < 0&& enemySpawns > 0 )
         {
@@ -54,10 +60,14 @@ public class EnemySpawnScript : MonoBehaviour
            
 
             Instantiate(enemy, new Vector3(EnemePos.x, EnemePos.y, EnemePos.z), Quaternion.identity);
+            
             enemySpawns--;
             enemeSoawn = 10;
 
+
         }
+       
+
     }
 
  

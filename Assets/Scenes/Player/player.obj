@@ -1,6 +1,6 @@
 # Blender 3.3.10
 # www.blender.org
-mtllib Spacecraft1.mtl
+mtllib player.mtl
 o Glass
 v -0.341755 2.662167 -0.085591
 v 0.855990 2.662167 0.476825

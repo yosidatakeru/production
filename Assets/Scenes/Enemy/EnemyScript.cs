@@ -11,16 +11,26 @@ public class EnemyScript : MonoBehaviour
     public GameObject EnemyBullet;
     float enemySpeed = 100;
     float Speed = 4.0f;
-    int timeUntilNextShot = 300;
-
-    int behaviorattern = 2;
+    int timeUntilNextShot = 0;
+    int bulletTimerReset = 0;
+    int behaviorattern = 0;
 
     public GameObject particle;
 
+    EnemySpawnScript enemySpawnScript = new EnemySpawnScript();
+
+    //âº
+    int A = 0;
+    //public int GetSetProperty
+    //{
+    //    //get { return A; }
+    //    //set {  = value; }
+    //}
     // Start is called before the first frame update
     void Start()
     {
-       
+        timeUntilNextShot = Random.Range(300, 600);
+        bulletTimerReset = timeUntilNextShot;
     }
 
 
@@ -31,7 +41,8 @@ public class EnemyScript : MonoBehaviour
 
         transform.position += enemySpeed * transform.forward * Time.deltaTime;
 
-
+        // enemySpawnScript.GetSetProperty += 1; //setÅAnumÇ10Ç…èëÇ´ä∑Ç¶ÇÈ
+        Debug.Log(enemySpawnScript.GetSetProperty); //getÅAnumÇéÊìæÇµÇƒConsoleÇ…ï\é¶
         switch (behaviorattern)
         {
 
@@ -95,7 +106,7 @@ public class EnemyScript : MonoBehaviour
             Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 
 
-            timeUntilNextShot = 300;
+            timeUntilNextShot = bulletTimerReset;
 
         }
 
@@ -111,10 +122,11 @@ public class EnemyScript : MonoBehaviour
             Instantiate(particle, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             //ìñÇΩÇ¡ÇΩÇÁè¡ñ≈
             GetComponent<MeshRenderer>().enabled = false;
-
-            //Destroy(particle);
-
-            // Destroy(gameObject);
+            
+            
+           
+            //ìGÇè¡Ç∑/
+            Destroy(gameObject);
 
 
 
