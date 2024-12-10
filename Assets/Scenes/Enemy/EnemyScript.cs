@@ -14,23 +14,21 @@ public class EnemyScript : MonoBehaviour
     int timeUntilNextShot = 0;
     int bulletTimerReset = 0;
     int behaviorattern = 0;
-
+  public  int a = 0;
     public GameObject particle;
 
-    EnemySpawnScript enemySpawnScript = new EnemySpawnScript();
+    EnemySpawnScript enemySpawnScript;
 
-    //‰¼
-    int A = 0;
-    //public int GetSetProperty
-    //{
-    //    //get { return A; }
-    //    //set {  = value; }
-    //}
-    // Start is called before the first frame update
+    private GameObject EnemySpawnObject; 
+
+ // Start is called before the first frame update
     void Start()
     {
         timeUntilNextShot = Random.Range(300, 600);
         bulletTimerReset = timeUntilNextShot;
+        enemySpawnScript = GameObject.Find("EnemySpawnObject").GetComponent<EnemySpawnScript>();
+
+        behaviorattern  = Random.Range(0, 1+1);
     }
 
 
@@ -41,8 +39,7 @@ public class EnemyScript : MonoBehaviour
 
         transform.position += enemySpeed * transform.forward * Time.deltaTime;
 
-        // enemySpawnScript.GetSetProperty += 1; //setAnum‚ğ10‚É‘‚«Š·‚¦‚é
-        Debug.Log(enemySpawnScript.GetSetProperty); //getAnum‚ğæ“¾‚µ‚ÄConsole‚É•\¦
+       
         switch (behaviorattern)
         {
 
@@ -101,11 +98,11 @@ public class EnemyScript : MonoBehaviour
         timeUntilNextShot--;
         if (timeUntilNextShot <= 0)
         {
-
+           
             //“G‚Ì¶¬
             Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 
-
+           // EnemySpawn;
             timeUntilNextShot = bulletTimerReset;
 
         }
@@ -122,9 +119,8 @@ public class EnemyScript : MonoBehaviour
             Instantiate(particle, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             //“–‚½‚Á‚½‚çÁ–Å
             GetComponent<MeshRenderer>().enabled = false;
-            
-            
-           
+            enemySpawnScript.defeats += 1;
+
             //“G‚ğÁ‚·/
             Destroy(gameObject);
 

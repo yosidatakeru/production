@@ -11,28 +11,24 @@ public class EnemySpawnScript : MonoBehaviour
     //敵
     public GameObject enemy;
     //敵のスポンジ時間の制御
-    int enemeSoawn = 10;
+    int enemeSoawn = 5;
     //スポーン数
-    public int enemySpawns = 20;
+    public int enemySpawns = 5;
     Vector3 EnemePos = Vector3.zero;
     float spawnSpeed = 100;
-
-   public int GetSetProperty
-    {
-        get { return enemySpawns; }
-        set { enemySpawns = value;}
-    }
+    //撃破数
+   public int defeats = 0;
+   
 
   
     // Start is called before the first frame update
     void Start()
     {
+        enemeSoawn = 5;
 
-    
-        
     }
 
-  
+
 
     // Update is called once per frame
     void Update()
@@ -46,10 +42,10 @@ public class EnemySpawnScript : MonoBehaviour
 
 
 
+        Debug.Log(defeats);
+       
 
-        GetSetProperty = enemySpawns;
-
-        if (enemeSoawn < 0&& enemySpawns > 0 )
+        if (enemeSoawn < 0&& enemySpawns > 5  )
         {
 
           
@@ -66,7 +62,12 @@ public class EnemySpawnScript : MonoBehaviour
 
 
         }
-       
+
+        if (defeats == 5)
+        {
+            enemySpawns = 10;
+            defeats = 0;
+        }
 
     }
 

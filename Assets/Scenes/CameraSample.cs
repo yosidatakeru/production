@@ -19,6 +19,7 @@ public class CameraSample : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // Debug.Log(player.transform.position.x);
         transform.position = player.transform.position + offset;
     }
 }
