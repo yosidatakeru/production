@@ -12,7 +12,7 @@ public class BulletShootScript : MonoBehaviour
     ////弾のスピード
 
     ////弾のインタバル制御
-    int timeUntilNextShot = 100;
+  //  int timeUntilNextShot = 100;
     ////弾が次打てるまでの時間
    // int nextShot = 0;
     // Start is called before the first frame update
