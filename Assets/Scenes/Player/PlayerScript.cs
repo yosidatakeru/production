@@ -9,7 +9,7 @@ public  class PlayerScript : MonoBehaviour
 {
     public GameObject Bullet;
     //プレイヤーの移動スピード
-    public float playerSpeed = 100;
+    public float playerSpeed = 10;
 
    
 
@@ -53,6 +53,7 @@ public  class PlayerScript : MonoBehaviour
             playerRotation.x++;
             
         }
+
 
         // Sキー（後方移動）
         if (Input.GetKey(KeyCode.S) && transform.position.y >= -5.0)

@@ -6,7 +6,7 @@ public class EnemyBulletScript : MonoBehaviour
 {
     // Start is called before the first frame update
     //弾のスピード
-    int speed = 80;
+    int speed = 15;
     void Start()
     {
         

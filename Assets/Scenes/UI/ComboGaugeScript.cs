@@ -9,11 +9,12 @@ public class ComboGaugeScript : MonoBehaviour
     public  float Gauge = 0;
     public Slider comboGauge;
     CanvasGroup canvasGroup;
+   
     void Start()
     {
         // CanvasGroup‚ğŒ»İ‚ÌGameObject‚©‚çæ“¾
         canvasGroup = GetComponent<CanvasGroup>();
-
+       
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class ComboGaugeScript : MonoBehaviour
         if (Gauge <= 0)
         {
             canvasGroup.alpha = 0;
+           
         }
         else 
         {

@@ -38,7 +38,7 @@ public class EnemyScript : MonoBehaviour
 
     ComboSceorwScript comboSceorwScript;
 
-   private ComboGaugeScript comboGaugeScript;
+    private ComboGaugeScript comboGaugeScript;
 
     private GameObject EnemySpawnObject; 
 

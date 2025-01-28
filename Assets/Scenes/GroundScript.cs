@@ -8,7 +8,7 @@ public class GroundScript : MonoBehaviour
 {
     // Start is called before the first frame update
     int speed = 200;
-    public float resetPositionZ = 960f; // z 座標リセット値を設定
+    public float resetPositionZ = 1450f; // z 座標リセット値を設定
 
 
 
@@ -27,7 +27,7 @@ public class GroundScript : MonoBehaviour
         transform.position -= speed * transform.forward * Time.deltaTime;
 
         // z 座標が -100 に近い場合にリセット
-        if (transform.position.z <=-220) // 誤差を許容した比較
+        if (transform.position.z <=-550) // 誤差を許容した比較
         {
             Vector3 newPosition = transform.position;
             newPosition.z = groundPos.z;

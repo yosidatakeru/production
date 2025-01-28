@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class CameraSample : MonoBehaviour
 {
-    private GameObject player; //プレイヤーの情報の格納
-    private Vector3 offset;　//相対距離の取得
+    public Transform player; // プレイヤーのTransformをアサイン
+    public Vector3 offset = new Vector3(0, 1, -3); // カメラのオフセット
+    public float smoothSpeed = 40; // カメラの追尾速度
 
-    // Start is called before the first frame update
     void Start()
     {
-        this.player = GameObject.Find("player 1");
-
-        offset = transform.position - player.transform.position;
-
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log(player.transform.position.x);
-        transform.position = player.transform.position + offset;
+
+        if (player == null) return; // プレイヤーが未設定なら処理しない
+
+        // カメラの目標位置を計算
+        Vector3 desiredPosition = player.position + offset;
+
+        // スムーズに目標位置に移動
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+
+        // プレイヤーを見る
+        transform.LookAt(player);
+
     }
 }

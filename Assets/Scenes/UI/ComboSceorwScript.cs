@@ -8,18 +8,25 @@ public class ComboSceorwScript : MonoBehaviour
 {
     public int conboScore = 0;
     private TMP_Text scoreText;
-
+    private ComboGaugeScript comboGaugeScript;
     // Start is called before the first frame update
     void Start()
     {
         conboScore = 0;
         scoreText = GetComponent<TMP_Text>();
         scoreText.text = "";
+        comboGaugeScript = GameObject.Find("ComboGauge").GetComponent<ComboGaugeScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(comboGaugeScript.Gauge<=0)
+        {
+            conboScore = 0;
+           
+        }
+
         if (conboScore != 0)
         {
             scoreText.text = conboScore.ToString();
