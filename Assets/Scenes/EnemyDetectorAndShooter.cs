@@ -13,7 +13,7 @@ public class EnemyDetectorAndShooter : MonoBehaviour
     public float detectionRadius = 20f; // 検出範囲
     
 
-   public Vector3 detectionSize =new Vector3(20f, 10f, 100f);
+   public Vector3 detectionSize = new Vector3(20f, 10f, 100f);
 
     public LayerMask enemyLayer; // 敵のレイヤーマスク
     public int maxTargets = 5; // 最大検出する敵の数
@@ -80,16 +80,16 @@ public class EnemyDetectorAndShooter : MonoBehaviour
        
     }
 
-    //private void OnDrawGizmos() // OnDrawGizmosSelected() → OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
+    private void OnDrawGizmos() // OnDrawGizmosSelected() → OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
 
-    //    // **検出範囲のボックスサイズ**
-    //    Vector3 boxSize = new Vector3(detectionSize.x, detectionSize.y, detectionSize.z); // X, Y, Z の大きさ
+        // **検出範囲のボックスサイズ**
+        Vector3 boxSize = new Vector3(detectionSize.x, detectionSize.y, detectionSize.z); // X, Y, Z の大きさ
 
-    //    // **ボックスのワイヤーフレームを描画**
-    //    Gizmos.DrawWireCube(transform.position, boxSize);
-    //}
+        // **ボックスのワイヤーフレームを描画**
+        Gizmos.DrawWireCube(transform.position, boxSize);
+    }
 
     //マーカの処理
     private void FollowMarkers()

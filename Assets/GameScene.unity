@@ -838,6 +838,7 @@ GameObject:
   - component: {fileID: 1068147075}
   - component: {fileID: 1068147074}
   - component: {fileID: 1068147076}
+  - component: {fileID: 1068147077}
   m_Layer: 5
   m_Name: 'Combo (TMP) '
   m_TagString: Untagged
@@ -976,6 +977,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61baa53fb3a57741853f818ca3b50ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1068147077
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068147072}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1152834274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1095,7 @@ GameObject:
   - component: {fileID: 1270105425}
   - component: {fileID: 1270105424}
   - component: {fileID: 1270105426}
+  - component: {fileID: 1270105427}
   m_Layer: 5
   m_Name: ComboScore (TMP)
   m_TagString: Untagged
@@ -1219,6 +1233,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conboScore: 0
+--- !u!225 &1270105427
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270105422}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1764787468
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,13 +14,13 @@ public class ComboGaugeScript : MonoBehaviour
     {
         // CanvasGroup‚ğŒ»İ‚ÌGameObject‚©‚çæ“¾
         canvasGroup = GetComponent<CanvasGroup>();
-       
+        Gauge = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        comboGauge.value= Gauge;
+        comboGauge.value = Gauge;
 
         if (Gauge <= 0)
         {

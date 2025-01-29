@@ -23,7 +23,7 @@ public  class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        playerRotation = Vector3.zero;
     }
 
     
