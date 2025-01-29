@@ -284,12 +284,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 5030048670235300030, guid: d6be458719a566d4db255bf609aac7ce, type: 3}
   launchPoint: {fileID: 6828179765021910871, guid: b1450a47da7edba489755bc05757b0e0, type: 3}
-  detectionRadius: 400
+  detectionRadius: 20
+  detectionSize: {x: 20, y: 10, z: 100}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
   maxTargets: 5
-  markerPrefab: {fileID: 4576095552715618919, guid: 752fc27546776a7488f55702d0baa944, type: 3}
+  markerPrefab: {fileID: 4721010129987615511, guid: 09a9441fbb6726443a8984680e5833d3, type: 3}
 --- !u!1001 &350182485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -638,7 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 7016990535425608541, guid: b1450a47da7edba489755bc05757b0e0, type: 3}
   groundEnemy: {fileID: 7016990535425608541, guid: c9ffc48778f008947aa3da231c3f48cd, type: 3}
-  enemySpawns: 40
+  enemySpawns: 10
   defeats: 0
 --- !u!54 &963448366
 Rigidbody:
