@@ -289,6 +289,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   maxTargets: 5
+  markerPrefab: {fileID: 4576095552715618919, guid: 752fc27546776a7488f55702d0baa944, type: 3}
 --- !u!1001 &350182485
 PrefabInstance:
   m_ObjectHideFlags: 0

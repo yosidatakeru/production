@@ -20,11 +20,11 @@ public class EnemyDetectorAndShooter : MonoBehaviour
     private List<GameObject> activeMarkers = new List<GameObject>(); // 配置されたマーカーのリスト
     private bool isDetecting = false; // 検出中フラグ
     private Coroutine detectionCoroutine; // 索敵用コルーチン
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class EnemyDetectorAndShooter : MonoBehaviour
                 Debug.Log("検出を開始...");
             }
 
-           
+
         }
 
         // スペースキーを離した瞬間に弾を発射
@@ -68,7 +68,7 @@ public class EnemyDetectorAndShooter : MonoBehaviour
         {
             isDetecting = false;
         }
-            FollowMarkers();
+        FollowMarkers();
     }
 
     //マーカの処理
@@ -122,52 +122,49 @@ public class EnemyDetectorAndShooter : MonoBehaviour
 
     void DetectAndAddEnemy()
     {
+        // すでに maxTargets の敵を検出している場合、新しい敵を追加しない
+        if (detectedEnemies.Count >= maxTargets)
+        {
+            return;
+        }
+
         // 検出範囲内の敵を取得
         Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius, enemyLayer);
 
-
+        // 敵が見つからなかった場合、処理を終了
         if (hits.Length == 0)
         {
             Debug.Log("敵が見つかりませんでした。");
-            return;  // 敵がいない場合は何もせずに終了
+            return;
         }
 
-
-        // 距離順に並べ替え、最も近い1体を追加（重複回避）
-        Transform closestEnemy = hits
+        // 敵を距離順にソート
+        List<Transform> sortedEnemies = hits
             .OrderBy(hit => Vector3.Distance(transform.position, hit.transform.position))
             .Select(hit => hit.transform)
-            .FirstOrDefault();
+            .ToList();
 
-        if (closestEnemy != null && !detectedEnemies.Contains(closestEnemy))
+        foreach (Transform enemy in sortedEnemies)
         {
-            detectedEnemies.Add(closestEnemy);
-            Debug.Log($"敵 {closestEnemy.name} を検出しました！");
+            // 既にリストにある敵は追加しない
+            if (!detectedEnemies.Contains(enemy))
+            {
+                detectedEnemies.Add(enemy);
+                Debug.Log($"敵 {enemy.name} を検出しました！");
 
-        }
-        else
-        {
-            Debug.Log("敵が見つかりませんでした。");
-        }
+                // マーカーを作成（既に maxTargets に達していたら作成しない）
+                if (activeMarkers.Count < maxTargets)
+                {
+                    GameObject marker = Instantiate(markerPrefab, enemy.position, Quaternion.identity);
+                    activeMarkers.Add(marker);
+                }
 
-
-
-        // マーカー数が5個を超えた場合、最も古いマーカーを削除
-        if (activeMarkers.Count <= 5)
-        {
-            // 敵の位置にマーカーを生成
-            GameObject marker = Instantiate(markerPrefab, closestEnemy.position, Quaternion.identity);
-            activeMarkers.Add(marker);
-        }
-
-        // 敵を検出してリストを更新
-        detectedEnemies = DetectEnemies();
-
-        // 検出リストの最大数を超えたら削除
-        if (detectedEnemies.Count > maxTargets)
-        {
-            detectedEnemies.RemoveAt(0);
-            RemoveOldestMarker();
+                // リストが埋まったらループを抜ける
+                if (detectedEnemies.Count >= maxTargets)
+                {
+                    break;
+                }
+            }
         }
     }
 
@@ -196,10 +193,10 @@ public class EnemyDetectorAndShooter : MonoBehaviour
             .ToList();
     }
 
-   
+
     void FireMissiles()
     {
-       
+
         // 検出した敵それぞれに弾を発射
         foreach (Transform enemy in detectedEnemies)
         {
@@ -220,10 +217,10 @@ public class EnemyDetectorAndShooter : MonoBehaviour
         // 検出リストをクリア
         detectedEnemies.Clear();
 
-      
 
-      
-        
+
+
+
         void OnDrawGizmosSelected()
         {
             // 検出範囲を視覚化
